@@ -9,15 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --bg-cream: #fbf8f3;
-            --text-dark: #3a302a;
-            --text-espresso: #6b5a50;
-            --text-light-sepia: #8c766b;
-            --accent-rose: #c3797d;
-            --accent-rose-faint: rgba(195, 121, 125, 0.04);
-            --border-thin: rgba(107, 90, 80, 0.15);
-        }
+:root {
+    --bg-cream: #fff9ed;
+    --text-dark: #3a302a;
+    --text-sepia: #4e3f34;
+    --text-espresso: #4e3f34;    
+    --text-light-sepia: #645246;
+    --accent-rose: #b55568;
+    --accent-rose-faint: #f9f2ed; /* this is the border inside colorr!!!*/
+    --border-soft: #3a302a85;
+    --border-thin: #3a302a10;      
+}
+
         body {
             background-color: var(--bg-cream);
             color: var(--text-dark);
@@ -36,32 +39,32 @@
             margin-bottom: 2.5rem;
         }
         .editorial-title {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 400;
-            color: var(--text-espresso);
+            color: var(--accent-rose);
             margin-bottom: 0.5rem;
         }
         .editorial-subtitle {
             font-style: italic;
-            color: var(--accent-rose);
-            font-size: 0.9rem;
+            color: var(--text-espresso);
+            font-size: 0.8rem;
         }
         .dashboard-grid {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
-            gap: 2rem;
+            gap:  2rem;
             margin-bottom: 3rem;
         }
         @media (max-width: 850px) {
             .dashboard-grid { grid-template-columns: 1fr; }
         }
         .section-box-title {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 400;
-            font-style: italic;
-            color: var(--text-espresso);
+            font-style: normal;
+            color: var(--accent-rose);
             margin-bottom: 1rem;
-            border-bottom: 1px dashed var(--border-thin);
+            border-bottom: 0.1px dashed #2e26204d;
             padding-bottom: 0.4rem;
         }
         .luxury-country-links {
@@ -70,10 +73,10 @@
             gap: 0.75rem;
         }
         .country-row-item {
-            background: #ffffff;
-            border: 1px solid var(--border-thin);
+            background: #fffff0;
+            border: 1.1px dotted var(--border-soft);
             padding: 1rem;
-            border-radius: 6px;
+            border-radius: 2px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -94,7 +97,7 @@
         }
         .country-row-name {
             font-size: 1rem;
-            color: var(--text-dark);
+            color: var(--text-sepia);
             font-weight: 400;
         }
         .country-row-desc {
@@ -123,9 +126,11 @@
             opacity: 0.7;
             text-transform: lowercase;
         }
+
+    /* this is like the placeholder button */
         .editorial-input-wrap input[type="text"],
         .editorial-input-wrap input[type="number"] {
-            background: #ffffff;
+            background: #fffff0;
             border: 1px solid var(--border-thin);
             padding: 0.6rem;
             border-radius: 4px;
@@ -136,30 +141,7 @@
             width: 100%;
             box-sizing: border-box;
         }
-        .custom-file-upload {
-            position: relative;
-            display: block;
-            background: #ffffff;
-            border: 1px dashed var(--border-thin);
-            padding: 1.2rem;
-            text-align: center;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .file-upload-text {
-            font-size: 0.8rem;
-            color: var(--text-light-sepia);
-            font-style: italic;
-        }
-        .custom-file-upload input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
+  
         .editorial-btn {
             background: transparent;
             border: 1px solid var(--text-dark);
@@ -181,7 +163,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #ffffff;
+            background: #fffff0;
             border: 1px solid var(--border-thin);
             padding: 0.5rem 0.7rem;
             border-radius: 4px;
@@ -204,8 +186,8 @@
             font-size: 1.1rem;
         }
         .white-editorial-card {
-            background: #ffffff;
-            border: 1px solid var(--border-thin);
+            background: #fffff0;
+            border: 1px dotted var(--border-soft);
             padding: 1.4rem;
             border-radius: 6px;
         }
@@ -234,7 +216,7 @@
         }
         .proceed-btn {
             background: #54463d;
-            color: #fbf8f3;
+            color: #fffff0;
             padding: 0.65rem;
             border-radius: 4px;
             font-size: 0.88rem;
@@ -291,7 +273,7 @@
 
             <div class="dashboard-grid">
                 <div>
-                    <h3 class="section-box-title">select procurement origin.</h3>
+                    <h3 class="section-box-title">select what country you're ordering from.</h3>
                     <div class="luxury-country-links">
                         <div class="country-row-item" onclick="selectCountry('japan')">
                             <span class="country-row-name"> ♡ order from japan.</span>
@@ -299,7 +281,7 @@
                         </div>
                         <div class="country-row-item" onclick="selectCountry('thailand')">
                             <span class="country-row-name"> ♡ order from thailand.</span>
-                            <span class="country-row-desc">procurement from shopee, aliexpress ,facebook, and private forwarding.</span>
+                            <span class="country-row-desc">shopping from shopee, aliexpress ,facebook, and private forwarding.</span>
                         </div>
                         <div class="country-row-item disabled">
                             <span class="country-row-name">♡ order from china.</span>
@@ -335,7 +317,7 @@
 
 <div id="form-japan" class="country-form hidden invoice-split-grid">
     <div class="form-entry-side white-editorial-card">
-        <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">add item to your manifest ♡</h3>
+        <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">add item to your cart ♡</h3>
         
         <div class="editorial-input-wrap">
             <label for="jp-item-link">paste your item link here.</label>
@@ -343,11 +325,11 @@
         </div>
         
         <div class="editorial-input-wrap">
-            <label for="jp-item-price">list of your item in yen.</label>
+            <label for="jp-item-price">list your item's price in yen.</label>
             <input type="number" id="jp-item-price" placeholder="e.g. 4500">
         </div>
 
-        <button type="button" class="editorial-btn" style="margin-top: 0.5rem;" onclick="addItemToManifest('japan')">add item to manifest ♡</button>
+        <button type="button" class="editorial-btn" style="margin-top: 0.5rem;" onclick="addItemToManifest('japan')">add to cart ♡</button>
         
         <div id="jp-cart-items-container" class="manifest-list"></div>
     </div>
@@ -362,8 +344,11 @@
             <span>base currency subtotal</span>
             <span id="jp-summary-foreign" style="font-weight: bold;">¥0</span>
         </div>
+               <div class="invoice-total-divider">
+             <h3 style="font-size: 0.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">shipping fee is not included in this calculation. you have to pay them upon arrival. you can calculate your shipping fees before ordering in our shipping fees calculator.</h3>
+        </div>
         <div class="invoice-total-divider">
-            <span class="total-label">aggregated valuation total:</span>
+            <span class="total-label">total:</span>
             <span id="jp-summary-mmk" class="total-amount">0 MMK</span>
         </div>
         <button type="button" class="proceed-btn" onclick="proceedToCheckoutPage()">  checkout ♡ </button>
@@ -372,7 +357,7 @@
 
             <div id="form-thailand" class="country-form hidden thai-layout-grid">
                 <div class="white-editorial-card" style="height: fit-content;">
-                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ baht price calculator</h3>
+                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ mmk to baht calculator</h3>
                     <div class="editorial-input-wrap" style="margin-bottom: 1.5rem;">
                         <label for="th-calc-price">enter your desired amount in baht</label>
                         <input type="number" id="th-calc-price" placeholder="e.g.350" oninput="calculateThailandLive()">
@@ -383,16 +368,16 @@
                         <span id="th-res-cost" style="font-weight: bold;">0 MMK</span>
                     </div>
                     <div class="invoice-row">
-                        <span>service markup allocation (10%)</span>
+                        <span>service fees (10%)</span>
                         <span id="th-res-markup" style="font-weight: bold;">0 MMK</span>
                     </div>
                     <div class="invoice-total-divider">
-                        <span class="total-label">aggregated valuation total:</span>
+                        <span class="total-label">total:</span>
                         <span id="th-res-total" class="total-amount">0 MMK</span>
                     </div>
                 </div>
                 <div class="white-editorial-card">
-                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 0.8rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ our services </h3>
+                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 0.8rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ our thailand services </h3>
                     <div class="thai-editorial-list">
                         <a href="addressth.html" class="country-row-item" style="padding: 0.6rem 0.8rem;">
                             <span class="country-row-name" style="font-size: 0.9rem;">purchase our bangkok address.</span>
@@ -431,7 +416,7 @@
 function proceedToCheckoutPage() {
     const itemCount = document.getElementById('jp-summary-count').innerText;
     if (itemCount === "0") {
-        alert("please add at least one item to your manifest before checking out ♡");
+        alert("please add at least one item to your cart before checking out ♡");
         return;
     }
     let cartSummaryText = manifestCart.map((item, index) => 
