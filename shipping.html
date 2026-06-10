@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="style.css">
     <style>
         
-        :root {
-            --bg-cream: #fbf8f3;
-            --text-sepia: #6b5a50;
-            --text-light-sepia: #8c766b;
-            --accent-rose: #c3797d;
-            --accent-rose-faint: rgba(195, 121, 125, 0.04);
-            --border-soft: rgba(107, 90, 80, 0.15);
-            --btn-muted-sepia: #54463d;
-        }
+       :root {
+    --bg-cream: #fff9ed;
+    --text-dark: #3a302a;
+    --text-sepia: #4e3f34;
+    --text-espresso: #4e3f34;    
+    --text-light-sepia: #645246;
+    --accent-rose: #b55568;
+    --accent-rose-faint: #f9f2ed; /* this is the border inside colorr!!!*/
+    --border-soft: #3a302a85;
+    --border-thin: #3a302a10;      
+}
 
         body {
             background-color: var(--bg-cream);
@@ -124,7 +126,7 @@
         .country-radio-card {
             flex: 1;
             border: 1px solid var(--border-soft);
-            background: #ffffff;
+            background: #fffff0;
             padding: 0.6rem 1rem;
             border-radius: 5px;
             cursor: pointer;
@@ -151,7 +153,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #fff;
+            background: #fffff0;
             flex-shrink: 0;
             transition: all 0.2s ease;
         }
@@ -177,7 +179,7 @@
         }
         .goods-card {
             border: 1px solid var(--border-soft);
-            background: #ffffff;
+            background: #fffff0;
             padding: 0.6rem 0.8rem;
             border-radius: 5px;
             display: flex;
@@ -230,7 +232,7 @@
             transform: translateX(0);
         }
         .qty-action-btn {
-            background: #ffffff;
+            background: #fffff0;
             border: 1px solid var(--border-soft);
             width: 18px;
             height: 18px;
@@ -261,7 +263,7 @@
         }
         .summary-card {
             border: 1px solid var(--border-soft);
-            background: #ffffff;
+            background: #fffff0;
             padding: 1.4rem;
             border-radius: 5px;
         }
@@ -311,7 +313,7 @@
             text-align: center;
             text-decoration: none;
             background: var(--btn-muted-sepia);
-            color: #fbf8f3;
+            color: #fffff0;
             padding: 0.65rem;
             border-radius: 4px;
             font-size: 0.88rem;
@@ -536,40 +538,45 @@
                 window.location.href = 'order.html';
             }, 1000);
         }
-        async function initializeGlobalHeader() {
+              async function initializeGlobalHeader() {
             const headerContainer = document.getElementById('global-header');
             if (!headerContainer) return;
             try {
-                const response = await fetch('header.html');
+                const response = await fetch('header.html'); 
                 if (!response.ok) throw new Error('Header resource load failed');
                 const headerHtmlContent = await response.text();
                 headerContainer.innerHTML = headerHtmlContent;
                 
                 let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
-                if (currentFilename === "" || !currentFilename) currentFilename = "shipping.html";
+                if (currentFilename === "" || !currentFilename) currentFilename = "index.html";
                 
-                const navLinks = headerContainer.querySelectorAll('.nav-btn, .side-nav-btn');
+                const navLinks = headerContainer.querySelectorAll('.nav-btn');
                 navLinks.forEach(link => {
-                    const dataPageAttr = link.getAttribute('data-page');
-                    if (dataPageAttr) {
-                        if (dataPageAttr.toLowerCase() === currentFilename) {
-                            link.classList.add('active');
-                        } else {
-                            link.classList.remove('active');
-                        }
+                    const dataPage = link.getAttribute('data-page');
+                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
+                        link.classList.add('active');
                     } else {
-                        const href = link.getAttribute('href');
-                        if (href && href.toLowerCase().includes(currentFilename)) {
-                            link.classList.add('active');
-                        } else {
-                            link.classList.remove('active');
-                        }
+                        link.classList.remove('active');
                     }
                 });
-            } catch (error) { 
-                console.error('Error loading header:', error); 
-            }
+
+                const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
+                const trigger = headerContainer.querySelector('.sidebar-trigger');
+                if (trigger && hoverZone) {
+                    trigger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hoverZone.classList.toggle('open');
+                    });
+                    document.addEventListener('click', (e) => {
+                        if (!hoverZone.contains(e.target)) {
+                            hoverZone.classList.remove('open');
+                        }
+                    });
+                }
+            } catch (error) { console.error('Error loading header:', error); }
         }
+        document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
+        
 
         window.addEventListener('DOMContentLoaded', () => {
             initializeGlobalHeader();
