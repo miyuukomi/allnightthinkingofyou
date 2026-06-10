@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡ terms of service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .policy-hero {
+            text-align: center;
+            max-width: 500px;
+            margin: 3rem auto 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--text-sepia);
+            font-size: 0.85rem;
+            font-style: italic;
+            opacity: 0.5;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            opacity: 1;
+            color: var(--accent-rose);
+            transform: translateX(-2px);
+        }
+
+        .policy-hero h1 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text-sepia);
+            text-transform: lowercase;
+        }
+        
+        .policy-subtext {
+            font-style: italic;
+            font-size: 0.88rem;
+            opacity: 0.6;
+        }
+
+        .doc-embed-frame {
+            width: 100%;
+            height: 850px; 
+            border: none;
+            background: #ffffff;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="global-header" class="site-header fade-up"></header>
+
+    <main class="main-container fade-up delay-1">
+        <section class="policy-hero">
+            <a href="order.html" class="back-link">← back to order</a>
+            
+            <h1>terms of service</h1>
+            <p class="policy-subtext">please read our terms of service carefully before using our website or services.</p>
+        </section>
+
+        <div class="white-editorial-card" style="padding: 0.2rem; overflow: hidden;">
+            <iframe 
+                src="https://docs.google.com/document/d/e/2PACX-1vTeeP4Ts9_zD0msywib_q1PVNWirIAoBnWJjs5Uig31_hgMKnOzX_d9anPsfZl_tsGHqMB5FQJ1fzsm/pub?embedded=true" 
+                class="doc-embed-frame">
+            </iframe>
+        </div>
+    </main>
+
+    <footer class="site-footer fade-up delay-2">
+        <p>allnightthinkingofyou@outlook.com ❤︎⁠ located in yangon, myanmar</p>
+    </footer>
+
+    <script>
+        /* Asynchronous navigation dynamic injector */
+        async function initializeGlobalHeader() {
+            const headerContainer = document.getElementById('global-header');
+            if (!headerContainer) return;
+            try {
+                const response = await fetch('header.html');
+                if (!response.ok) throw new Error('Header resource load failed');
+                const headerHtmlContent = await response.text();
+                headerContainer.innerHTML = headerHtmlContent;
+                
+                let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
+                if (currentFilename === "" || !currentFilename) currentFilename = "terms.html";
+                
+                const navLinks = headerContainer.querySelectorAll('.nav-btn');
+                navLinks.forEach(link => {
+                    const dataPage = link.getAttribute('data-page');
+                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            } catch (error) { console.error('Error loading header:', error); }
+        }
+
+        window.addEventListener('DOMContentLoaded', initializeGlobalHeader);
+    </script>
+</body>
+</html>

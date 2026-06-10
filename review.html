@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡ leave review</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+  
+        body {
+            padding-top: 3.5rem; 
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars if embed is full-screen */
+        }
+        
+        .review-embed-container {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 3.5rem); /* Full height minus header */
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="global-header" class="site-header fade-up"></header>
+
+    <main class="review-embed-container">
+        <div style="width:100%;height:100%;">
+            <div data-fillout-id="3GvgRnvkseus" data-fillout-embed-type="fullscreen" style="width:100%;height:100%;" data-fillout-inherit-parameters></div>
+            <script src="https://server.fillout.com/embed/v1/"></script>
+        </div>
+    </main>
+
+    <script>
+        /* Asynchronous navigation dynamic injector */
+        async function initializeGlobalHeader() {
+            const headerContainer = document.getElementById('global-header');
+            if (!headerContainer) return;
+            try {
+                const response = await fetch('header.html');
+                if (!response.ok) throw new Error('Header resource load failed');
+                headerContainer.innerHTML = await response.text();
+                
+                // Highlight 'review' link if it exists in your nav, otherwise keep neutral
+                let currentFilename = "review.html";
+                const navLinks = headerContainer.querySelectorAll('.nav-btn, .side-nav-btn');
+                navLinks.forEach(link => {
+                    const dataPage = link.getAttribute('data-page');
+                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
+                        link.classList.add('active');
+                    }
+                });
+            } catch (error) { console.error('Error loading header:', error); }
+        }
+        document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
+    </script>
+</body>
+</html>

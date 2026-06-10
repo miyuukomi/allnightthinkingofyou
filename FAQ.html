@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ♡ faq </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .faq-wrapper {
+            max-width: 650px;
+            margin: 4rem auto 5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var (--text-sepia);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            font-style: italic;
+            color: var(--text-light-sepia);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+
+        .faq-category-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--accent-rose);
+            margin: 3rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border-thin);
+            font-style: italic;
+            text-transform: lowercase;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(107, 90, 80, 0.08);
+        }
+
+        .faq-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+            font-family: 'Baskervville', serif;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            text-align: left;
+            transition: color 0.3s ease;
+        }
+
+        .faq-trigger:hover {
+            color: var(--accent-rose);
+        }
+
+        .faq-icon {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-light-sepia);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .faq-content p {
+            padding-bottom: 1.5rem;
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-espresso);
+            margin: 0;
+            padding-right: 2rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: var(--accent-rose);
+        }
+
+        .faq-item.active .faq-content {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="global-header" class="site-header fade-up"></header>
+
+    <main class="faq-wrapper fade-up delay-1">
+        <h1 class="page-title">frequently asked questions ⸜(｡˃ ᵕ ˂ )⸝♡</h1>
+        <p class="page-subtitle">everything you need to know about manifesting your items.<br>if your thoughts aren't answered here, you can always reach out directly.</p>
+
+        <h2 class="faq-category-title">♡ shipping & timelines</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>how long does delivery usually take?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>once your items arrive at our overseas sorting centers, shipments from thailand usually take about 10–15 days to reach myanmar. shipments from japan typically take about 20 daus. please note that customs clearances can occasionally add slight delays.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>where are your overseas warehouses located?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>we operate two secure receiving hubs: our thailand warehouse is located in pathumthani, and our japan warehouse is located in saitama. all your delicate parcels are received and consolidated there before making their way home.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>how is the final local delivery handled in myanmar?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>once your parcel arrives in yangon, we will notify you immediately. we offer local pickup options, or we can carefully dispatch your package via trusted local couriers (like royal express or wepotz) to anywhere in the country.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="faq-category-title">♡ payments & pricing</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>what payment options do you gracefully accept?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>we offer a wide variety of ways to clear your invoice. locally, we accept kbz pay, wave pay, uab pay, and aya pay. for international or regional transfers, we also accept bank of ayudhya, remitly, wechat pay, union pay, and alipay.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>do i need to pay the full amount upfront?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>to secure your items immediately from overseas sellers, we usually require the base cost of the item to be cleared upfront. international shipping and final local delivery fees can be settled once the items safely reach our yangon house.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>how often do your exchange rates update?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>because market values fluctuate, our mmk to thb and jpy conversion rates are updated regularly to reflect the current landscape. the rate locked in at the moment you submit your manifest is the rate you will be charged.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="faq-category-title">♡ our services & policies</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>what is the difference between "proxy buying" and "package forwarding"?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>if you use our <strong>proxy service</strong>, you simply send us a link, and we handle the communication, the transaction, and the shipping entirely on your behalf. <br><br>if you use our <strong>forwarding service</strong>, we lend you our saitama or pathumthani addresses. you purchase the items yourself using your own accounts, ship them to our warehouse, and we simply bring them back to myanmar for you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>can i order from individual sellers on facebook or twitter?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>yes! we frequently help customers secure rare items from private sellers, auctions, and social media bids in thailand and japan. just provide the post link, and we will handle the delicate communication for you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>what happens if the item i manifest sells out?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>we try to process orders as quickly as we can between university classes. however, if an item is highly limited and sells out before we can secure it, you will be notified immediately and refunded in full, without question.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    <span>can i cancel or edit my order once placed?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-content">
+                    <p>because we move quickly to secure your items, once a purchase has been confirmed and paid for with the overseas seller, we can no longer cancel or alter the order. please manifest carefully! ♡</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer fade-up delay-2">
+        <p>allnightthinkingofyou@outlook.com ❤︎⁠ located in yangon, myanmar</p>
+    </footer>
+
+    <script>
+        // Smooth Accordion Logic
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const content = button.nextElementSibling;
+            const container = item.parentElement;
+            
+            // Close other open items within the same category
+            container.querySelectorAll('.faq-item').forEach(el => {
+                if (el !== item && el.classList.contains('active')) {
+                    el.classList.remove('active');
+                    el.querySelector('.faq-content').style.maxHeight = null;
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+        }
+
+        // Standard Header Initialization
+        async function initializeGlobalHeader() {
+            const headerContainer = document.getElementById('global-header');
+            if (!headerContainer) return;
+            try {
+                const response = await fetch('header.html');
+                if (!response.ok) throw new Error('Header resource load failed');
+                const headerHtmlContent = await response.text();
+                headerContainer.innerHTML = headerHtmlContent;
+                let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
+                if (currentFilename === "" || !currentFilename) currentFilename = "faq.html";
+                const navLinks = headerContainer.querySelectorAll('.nav-btn');
+                navLinks.forEach(link => {
+                    const dataPage = link.getAttribute('data-page');
+                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            } catch (error) { console.error('Error loading header:', error); }
+        }
+        window.addEventListener('DOMContentLoaded', initializeGlobalHeader);
+    </script>
+</body>
+</html>
+
+<script>
+    async function initializeGlobalHeader() {
+        const headerContainer = document.getElementById('global-header');
+        if (!headerContainer) return;
+        try {
+            const response = await fetch('header.html');
+            if (!response.ok) throw new Error('Header resource load failed');
+            const headerHtmlContent = await response.text();
+            headerContainer.innerHTML = headerHtmlContent;
+            
+            let currentPath = window.location.pathname.split('/').pop().toLowerCase().replace('.html', '');
+            if (currentPath === "" || currentPath === "index") currentPath = "index";
+            
+            const navLinks = headerContainer.querySelectorAll('.nav-btn');
+            navLinks.forEach(link => {
+                const dataPage = link.getAttribute('data-page').toLowerCase();
+                if (dataPage === currentPath) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // This is the special mobile touch engine code:
+            const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
+            const trigger = headerContainer.querySelector('.sidebar-trigger');
+            if (trigger && hoverZone) {
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hoverZone.classList.toggle('open');
+                });
+                document.addEventListener('click', (e) => {
+                    if (!hoverZone.contains(e.target)) {
+                        hoverZone.classList.remove('open');
+                    }
+                });
+            }
+        } catch (error) { console.error('Error loading header:', error); }
+    }
+    document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
+</script>
