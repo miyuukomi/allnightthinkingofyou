@@ -254,17 +254,18 @@
             }
         }
 
-        // Standard Header Initialization
-        async function initializeGlobalHeader() {
+     async function initializeGlobalHeader() {
             const headerContainer = document.getElementById('global-header');
             if (!headerContainer) return;
             try {
-                const response = await fetch('header.html');
+                const response = await fetch('header.html'); 
                 if (!response.ok) throw new Error('Header resource load failed');
                 const headerHtmlContent = await response.text();
                 headerContainer.innerHTML = headerHtmlContent;
+                
                 let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
-                if (currentFilename === "" || !currentFilename) currentFilename = "faq.html";
+                if (currentFilename === "" || !currentFilename) currentFilename = "index.html";
+                
                 const navLinks = headerContainer.querySelectorAll('.nav-btn');
                 navLinks.forEach(link => {
                     const dataPage = link.getAttribute('data-page');
@@ -274,51 +275,24 @@
                         link.classList.remove('active');
                     }
                 });
+
+                const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
+                const trigger = headerContainer.querySelector('.sidebar-trigger');
+                if (trigger && hoverZone) {
+                    trigger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hoverZone.classList.toggle('open');
+                    });
+                    document.addEventListener('click', (e) => {
+                        if (!hoverZone.contains(e.target)) {
+                            hoverZone.classList.remove('open');
+                        }
+                    });
+                }
             } catch (error) { console.error('Error loading header:', error); }
         }
-        window.addEventListener('DOMContentLoaded', initializeGlobalHeader);
+        document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
     </script>
 </body>
 </html>
 
-<script>
-    async function initializeGlobalHeader() {
-        const headerContainer = document.getElementById('global-header');
-        if (!headerContainer) return;
-        try {
-            const response = await fetch('header.html');
-            if (!response.ok) throw new Error('Header resource load failed');
-            const headerHtmlContent = await response.text();
-            headerContainer.innerHTML = headerHtmlContent;
-            
-            let currentPath = window.location.pathname.split('/').pop().toLowerCase().replace('.html', '');
-            if (currentPath === "" || currentPath === "index") currentPath = "index";
-            
-            const navLinks = headerContainer.querySelectorAll('.nav-btn');
-            navLinks.forEach(link => {
-                const dataPage = link.getAttribute('data-page').toLowerCase();
-                if (dataPage === currentPath) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-
-            // This is the special mobile touch engine code:
-            const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
-            const trigger = headerContainer.querySelector('.sidebar-trigger');
-            if (trigger && hoverZone) {
-                trigger.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    hoverZone.classList.toggle('open');
-                });
-                document.addEventListener('click', (e) => {
-                    if (!hoverZone.contains(e.target)) {
-                        hoverZone.classList.remove('open');
-                    }
-                });
-            }
-        } catch (error) { console.error('Error loading header:', error); }
-    }
-    document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
-</script>
