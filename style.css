@@ -1,13 +1,13 @@
 :root {
-    --bg-cream: #fbf8f3;
+    --bg-cream: #fff9ed;
     --text-dark: #3a302a;
-    --text-sepia: #6b5a50;
-    --text-espresso: #6b5a50;    
-    --text-light-sepia: #8c766b;
-    --accent-rose: #c3797d;
-    --accent-rose-faint: rgba(195, 121, 125, 0.04);
-    --border-soft: rgba(107, 90, 80, 0.15);
-    --border-thin: rgba(107, 90, 80, 0.15);      
+    --text-sepia: #4e3f34;
+    --text-espresso: #4e3f34;    
+    --text-light-sepia: #645246;
+    --accent-rose: #b55568;
+    --accent-rose-faint: #f9f2ed; /* this is the border inside colorr!!!*/
+    --border-soft: #3a302a85;
+    --border-thin: #3a302a10;      
 }
 
 * {
@@ -66,18 +66,18 @@ body {
 .status-banner {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1rem;
     max-width: 750px;
-    width: 90%;
-    margin: 2rem auto 2rem auto;
-    padding: 1rem 1.5rem;
-    background-color: var(--accent-rose-faint);
-    border: 1px dashed var(--accent-rose);
-    border-radius: 8px;
+    width: 100%;
+    margin: 1rem auto 0rem auto;
+    padding: 1rem 1rem;
+    background-color: var(#fffff0);
+    border: 0.1px dashed var(--text-espresso);
+    border-radius: 2px;
 }
 
 .banner-icon {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--accent-rose);
     display: flex;
     align-items: center;
@@ -94,14 +94,15 @@ body {
 .banner-title {
     font-family: 'Baskervville', serif;
     font-size: 0.95rem;
-    font-weight: bold;
+    font-weight: normal;
     color: var(--text-dark);
+    line-height: 2;
 }
 
 .banner-desc {
     font-family: 'Baskervville', serif;
     font-size: 0.85rem;
-    font-style: italic;
+    font-style: bold;
     color: var(--text-light-sepia);
     line-height: 1.4;
 }
@@ -189,7 +190,7 @@ body {
     font-weight: 600;
 }
 
-/* Master Navigation Core Wrapper */
+
 .sidebar-hover-zone {
     position: fixed;
     top: 0;
@@ -200,7 +201,7 @@ body {
     transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Toggled open layout class structure (Active on Tap / Click) */
+
 .sidebar-hover-zone.open {
     width: 265px;
 }
@@ -239,8 +240,8 @@ body {
     right: 0;
     width: 45px;
     height: 120px;
-    background-color: #ffffff;
-    border: 1px solid rgba(107, 90, 80, 0.2);
+    background-color: #fffff0;
+    border: 0.1px dashed #4e3f3493;
     border-right: none;
     border-radius: 6px 0 0 6px;
     display: flex;
@@ -263,7 +264,6 @@ body {
     font-style: italic;
     color: var(--accent-rose);
     writing-mode: vertical-rl;
-    text-orient: mixed;
     transition: opacity 0.25s ease;
 }
 
@@ -273,12 +273,12 @@ body {
     right: 0;
     width: 220px;
     height: 100vh;
-    background-color: #ffffff !important;
-    border-left: 1px solid var(--border-soft);
+    background-color: #fffff0 !important;
+    border-left: 1px dashed #4e3f3493;
     padding: 6rem 1.8rem;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 1rem;
     transform: translateX(100%);
     box-shadow: -10px 0 35px rgba(107, 90, 80, 0.08);
     transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
@@ -947,10 +947,10 @@ body {
 }
 
 .site-footer p {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-style: italic;
-    color: var(--text-light-sepia);
-    opacity: 0.65;
+    color: var(--text-sepia);
+    opacity: 0.8;
 }
 
 .video-container {
