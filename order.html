@@ -408,7 +408,7 @@
     <script>
 
         const YEN_TO_MMK_RATE = 30; 
-        const THB_TO_MMK_BASE = 134; 
+        const THB_TO_MMK_BASE = 135; 
         let activeCountryContext = 'japan';
         let manifestCart = [];
 
@@ -424,7 +424,7 @@ function proceedToCheckoutPage() {
     ).join('\n');
 
     const totalForeign = manifestCart.reduce((sum, item) => sum + item.price, 0);
-    const totalMMK = totalForeign * YEN_TO_MMK_RATE;
+    const totalMMK = 0.10 * YEN_TO_MMK_RATE;
     const formattedTotal = `${totalMMK.toLocaleString()} MMK`;
 
     localStorage.setItem('cart_summary', cartSummaryText);
