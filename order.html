@@ -357,7 +357,7 @@
 
             <div id="form-thailand" class="country-form hidden thai-layout-grid">
                 <div class="white-editorial-card" style="height: fit-content;">
-                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ baht to mmk calculator</h3>
+                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ mmk to baht calculator</h3>
                     <div class="editorial-input-wrap" style="margin-bottom: 1.5rem;">
                         <label for="th-calc-price">enter your desired amount in baht</label>
                         <input type="number" id="th-calc-price" placeholder="e.g.350" oninput="calculateThailandLive()">
@@ -407,8 +407,8 @@
 
     <script>
 
-        const YEN_TO_MMK_RATE = 30; 
-        const THB_TO_MMK_BASE = 135; 
+        const YEN_TO_MMK_RATE = 33; 
+        const THB_TO_MMK_BASE = 138; 
         let activeCountryContext = 'japan';
         let manifestCart = [];
 
@@ -424,7 +424,7 @@ function proceedToCheckoutPage() {
     ).join('\n');
 
     const totalForeign = manifestCart.reduce((sum, item) => sum + item.price, 0);
-    const totalMMK = 0.10 * YEN_TO_MMK_RATE;
+    const totalMMK = totalForeign * YEN_TO_MMK_RATE;
     const formattedTotal = `${totalMMK.toLocaleString()} MMK`;
 
     localStorage.setItem('cart_summary', cartSummaryText);
