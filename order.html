@@ -348,7 +348,7 @@
              <h3 style="font-size: 0.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">shipping fee is not included in this calculation. you have to pay them upon arrival. you can calculate your shipping fees before ordering in our shipping fees calculator.</h3>
         </div>
         <div class="invoice-total-divider">
-            <span class="total-label">total (inc. 10% service fee):</span>
+            <span class="total-label">total (inc. 5% service fee):</span>
             <span id="jp-summary-mmk" class="total-amount">0 MMK</span>
         </div>
         <button type="button" class="proceed-btn" onclick="proceedToCheckoutPage()">   checkout ♡ </button>
@@ -425,9 +425,9 @@ function proceedToCheckoutPage() {
 
     const totalForeign = manifestCart.reduce((sum, item) => sum + item.price, 0);
     
-    // FIX: Calculate total base MMK cost first, then multiply by 1.10 to add the 10% fee
+    
     const baseMMK = totalForeign * YEN_TO_MMK_RATE;
-    const totalMMK = baseMMK * 1.10;
+    const totalMMK = baseMMK * 1.05;
     const formattedTotal = `${Math.round(totalMMK).toLocaleString()} MMK`;
 
     localStorage.setItem('cart_summary', cartSummaryText);
