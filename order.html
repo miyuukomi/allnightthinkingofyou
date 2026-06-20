@@ -348,10 +348,10 @@
              <h3 style="font-size: 0.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">shipping fee is not included in this calculation. you have to pay them upon arrival. you can calculate your shipping fees before ordering in our shipping fees calculator.</h3>
         </div>
         <div class="invoice-total-divider">
-            <span class="total-label">total:</span>
+            <span class="total-label">total (inc. 10% service fee):</span>
             <span id="jp-summary-mmk" class="total-amount">0 MMK</span>
         </div>
-        <button type="button" class="proceed-btn" onclick="proceedToCheckoutPage()">  checkout ♡ </button>
+        <button type="button" class="proceed-btn" onclick="proceedToCheckoutPage()">   checkout ♡ </button>
     </div>
 </div>
 
@@ -424,8 +424,11 @@ function proceedToCheckoutPage() {
     ).join('\n');
 
     const totalForeign = manifestCart.reduce((sum, item) => sum + item.price, 0);
-    const totalMMK = 0.10 * YEN_TO_MMK_RATE;
-    const formattedTotal = `${totalMMK.toLocaleString()} MMK`;
+    
+    // FIX: Calculate total base MMK cost first, then multiply by 1.10 to add the 10% fee
+    const baseMMK = totalForeign * YEN_TO_MMK_RATE;
+    const totalMMK = baseMMK * 1.10;
+    const formattedTotal = `${Math.round(totalMMK).toLocaleString()} MMK`;
 
     localStorage.setItem('cart_summary', cartSummaryText);
     localStorage.setItem('order_total', formattedTotal);
@@ -488,7 +491,9 @@ function proceedToCheckoutPage() {
             renderManifestItems();
             calculateSummary();
             linkInput.value = ''; priceInput.value = '';
-            document.getElementById('jp-upload-text').innerText = 'just space sorry :)';
+            
+            // Commented out to prevent crash since 'jp-upload-text' does not exist in your HTML layout
+            // document.getElementById('jp-upload-text').innerText = 'just space sorry :)';
         }
 
         function removeCartItem(id) {
@@ -519,7 +524,11 @@ function proceedToCheckoutPage() {
             const totalForeign = manifestCart.reduce((sum, item) => sum + item.price, 0);
             document.getElementById('jp-summary-count').innerText = manifestCart.length;
             document.getElementById('jp-summary-foreign').innerText = `¥${totalForeign.toLocaleString()}`;
-            document.getElementById('jp-summary-mmk').innerText = `${(totalForeign * YEN_TO_MMK_RATE).toLocaleString()} MMK`;
+            
+            // FIX: Make sure live card UI also reflects the 10% fee calculation accurately
+            const baseMMK = totalForeign * YEN_TO_MMK_RATE;
+            const totalMMK = baseMMK * 1.10;
+            document.getElementById('jp-summary-mmk').innerText = `${Math.round(totalMMK).toLocaleString()} MMK`;
         }
 
         function calculateThailandLive() {
@@ -575,4 +584,3 @@ function proceedToCheckoutPage() {
     </script>
 </body>
 </html>
-
