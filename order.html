@@ -499,6 +499,51 @@
         function proceedToCheckoutPage() {
             alert('Proceeding to checkout with compiled manifest values!');
         }
+
+ <footer class="site-footer fade-up delay-2">
+        <p>allnightthinkingofyou@outlook.com  ❤︎⁠  located in yangon, myanmar </p>
+    </footer>
+
+    <script>
+        async function initializeGlobalHeader() {
+            const headerContainer = document.getElementById('global-header');
+            if (!headerContainer) return;
+            try {
+                const response = await fetch('header.html'); 
+                if (!response.ok) throw new Error('Header resource load failed');
+                const headerHtmlContent = await response.text();
+                headerContainer.innerHTML = headerHtmlContent;
+                
+                let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
+                if (currentFilename === "" || !currentFilename) currentFilename = "index.html";
+                
+                const navLinks = headerContainer.querySelectorAll('.nav-btn');
+                navLinks.forEach(link => {
+                    const dataPage = link.getAttribute('data-page');
+                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+
+                const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
+                const trigger = headerContainer.querySelector('.sidebar-trigger');
+                if (trigger && hoverZone) {
+                    trigger.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hoverZone.classList.toggle('open');
+                    });
+                    document.addEventListener('click', (e) => {
+                        if (!hoverZone.contains(e.target)) {
+                            hoverZone.classList.remove('open');
+                        }
+                    });
+                }
+            } catch (error) { console.error('Error loading header:', error); }
+        }
+        document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
     </script>
 </body>
 </html>
+
