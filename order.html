@@ -127,6 +127,7 @@
             text-transform: lowercase;
         }
 
+    /* this is like the placeholder button */
         .editorial-input-wrap input[type="text"],
         .editorial-input-wrap input[type="number"] {
             background: #fffff0;
@@ -314,52 +315,52 @@
             <h2 id="current-country-title" class="editorial-title" style="text-align: left; font-size: 1.5rem; margin-bottom: 0.2rem;">Shopping Hub</h2>
             <p id="step-2-subtitle" style="font-style: italic; font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-light-sepia);"></p>
 
-            <div id="form-japan" class="country-form hidden invoice-split-grid">
-                <div class="form-entry-side white-editorial-card">
-                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">add item to your cart ♡</h3>
-                    
-                    <div class="editorial-input-wrap">
-                        <label for="jp-item-link">paste your item link here.</label>
-                        <input type="text" id="jp-item-link" placeholder="https://jp.mercari.com/item/...">
-                    </div>
-                    
-                    <div class="editorial-input-wrap">
-                        <label for="jp-item-price">list your item's price in yen.</label>
-                        <input type="number" id="jp-item-price" placeholder="e.g. 4500">
-                    </div>
+<div id="form-japan" class="country-form hidden invoice-split-grid">
+    <div class="form-entry-side white-editorial-card">
+        <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">add item to your cart ♡</h3>
+        
+        <div class="editorial-input-wrap">
+            <label for="jp-item-link">paste your item link here.</label>
+            <input type="text" id="jp-item-link" placeholder="https://jp.mercari.com/item/...">
+        </div>
+        
+        <div class="editorial-input-wrap">
+            <label for="jp-item-price">list your item's price in yen.</label>
+            <input type="number" id="jp-item-price" placeholder="e.g. 4500">
+        </div>
 
-                    <button type="button" class="editorial-btn" style="margin-top: 0.5rem;" onclick="addItemToManifest('japan')">add to cart ♡</button>
-                    
-                    <div id="jp-cart-items-container" class="manifest-list"></div>
-                </div>
+        <button type="button" class="editorial-btn" style="margin-top: 0.5rem;" onclick="addItemToManifest('japan')">add to cart ♡</button>
+        
+        <div id="jp-cart-items-container" class="manifest-list"></div>
+    </div>
 
-                <div class="fine-invoice-card white-editorial-card" style="height: fit-content;">
-                    <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ yen price calculator</h3>
-                    <div class="invoice-row">
-                        <span>items registered</span>
-                        <span id="jp-summary-count" style="font-weight: bold;">0</span>
-                    </div>
-                    <div class="invoice-row">
-                        <span>base currency subtotal</span>
-                        <span id="jp-summary-foreign" style="font-weight: bold;">¥0</span>
-                    </div>
-                    <div class="invoice-total-divider">
-                         <h3 style="font-size: 0.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">shipping fee is not included in this calculation. you have to pay them upon arrival. you can calculate your shipping fees before ordering in our shipping fees calculator.</h3>
-                    </div>
-                    <div class="invoice-total-divider">
-                        <span class="total-label">total (inc. 5% service fee):</span>
-                        <span id="jp-summary-mmk" class="total-amount">0 MMK</span>
-                    </div>
-                    <button type="button" class="proceed-btn" onclick="proceedToCheckoutPage()">   checkout ♡ </button>
-                </div>
-            </div>
+    <div class="fine-invoice-card white-editorial-card" style="height: fit-content;">
+        <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ yen price calculator</h3>
+        <div class="invoice-row">
+            <span>items registered</span>
+            <span id="jp-summary-count" style="font-weight: bold;">0</span>
+        </div>
+        <div class="invoice-row">
+            <span>base currency subtotal</span>
+            <span id="jp-summary-foreign" style="font-weight: bold;">¥0</span>
+        </div>
+               <div class="invoice-total-divider">
+             <h3 style="font-size: 0.6rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso);">shipping fee is not included in this calculation. you have to pay them upon arrival. you can calculate your shipping fees before ordering in our shipping fees calculator.</h3>
+        </div>
+        <div class="invoice-total-divider">
+            <span class="total-label">total (inc. 10% service fee):</span>
+            <span id="jp-summary-mmk" class="total-amount">0 MMK</span>
+        </div>
+        <button type="button" class="proceed-btn" onclick="proceedToCheckoutPage()">   checkout ♡ </button>
+    </div>
+</div>
 
-            <div id="form-form-thailand" class="country-form hidden thai-layout-grid" id="form-thailand">
+            <div id="form-thailand" class="country-form hidden thai-layout-grid">
                 <div class="white-editorial-card" style="height: fit-content;">
                     <h3 style="font-size: 0.95rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-espresso); border-bottom: 1px dashed var(--border-thin); padding-bottom: 0.3rem;">♡ baht to mmk calculator</h3>
                     <div class="editorial-input-wrap" style="margin-bottom: 1.5rem;">
                         <label for="th-calc-price">enter your desired amount in baht</label>
-                        <input type="number" id="th-calc-price" placeholder="e.g. 350" oninput="calculateThailandLive()">
+                        <input type="number" id="th-calc-price" placeholder="e.g.350" oninput="calculateThailandLive()">
                     </div>
 
                     <div class="invoice-row">
@@ -380,7 +381,7 @@
                     <div class="thai-editorial-list">
                         <a href="addressth.html" class="country-row-item" style="padding: 0.6rem 0.8rem;">
                             <span class="country-row-name" style="font-size: 0.9rem;">purchase our bangkok address.</span>
-                            <span class="country-row-desc" style="font-size: 0.72rem;">acquire specialized coordinates for private routing.</span>
+                            <span class="country-row-desc" style="font-size: 0.72rem;">accquire specialized coordinates for private routing.</span>
                         </a>
                         <a href="facebookth.html" class="country-row-item" style="padding: 0.6rem 0.8rem;">
                             <span class="country-row-name" style="font-size: 0.9rem;">buy from facebook.</span>
@@ -391,159 +392,3 @@
                             <span class="country-row-desc" style="font-size: 0.72rem;">browse and purchase from various online marketplaces.</span>
                         </a>
                         <a href="pforward.html" class="country-row-item" style="padding: 0.6rem 0.8rem;">
-                            <span class="country-row-name" style="font-size: 0.9rem;">private forwarding</span>
-                            <span class="country-row-desc" style="font-size: 0.72rem;">ship packages straight to our warehouse.</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        let cart = [];
-
-        function selectCountry(country) {
-            document.getElementById('step-1-screen').classList.add('hidden');
-            document.getElementById('step-2-screen').classList.remove('hidden');
-            
-            document.querySelectorAll('.country-form').forEach(el => el.classList.add('hidden'));
-            
-            if (country === 'japan') {
-                document.getElementById('current-country-title').innerText = "♡ japan forwarding portal";
-                document.getElementById('step-2-subtitle').innerText = "add your links and prices in yen below to compile your order.";
-                document.getElementById('form-japan').classList.remove('hidden');
-            } else if (country === 'thailand') {
-                document.getElementById('current-country-title').innerText = "♡ thailand services hub";
-                document.getElementById('step-2-subtitle').innerText = "use the tool below to convert your baht estimates or view specific forwarding pathways.";
-                // Fixed ID match for safety
-                const thForm = document.getElementById('form-thailand') || document.querySelector('.thai-layout-grid');
-                if(thForm) thForm.classList.remove('hidden');
-            }
-        }
-
-        function goBackToCountries() {
-            document.getElementById('step-2-screen').classList.add('hidden');
-            document.getElementById('step-1-screen').classList.remove('hidden');
-        }
-
-        function addItemToManifest(country) {
-            if (country === 'japan') {
-                const linkInput = document.getElementById('jp-item-link');
-                const priceInput = document.getElementById('jp-item-price');
-                
-                if (!linkInput.value || !priceInput.value) return;
-
-                const item = {
-                    id: Date.now(),
-                    link: linkInput.value,
-                    price: parseFloat(priceInput.value)
-                };
-
-                cart.push(item);
-                linkInput.value = '';
-                priceInput.value = '';
-                
-                renderJapanCart();
-            }
-        }
-
-        function removeJapanItem(id) {
-            cart = cart.filter(item => item.id !== id);
-            renderJapanCart();
-        }
-
-        function renderJapanCart() {
-            const container = document.getElementById('jp-cart-items-container');
-            container.innerHTML = '';
-
-            let totalYen = 0;
-
-            cart.forEach(item => {
-                totalYen += item.price;
-                const row = document.createElement('div');
-                row.className = 'manifest-item-row';
-                row.innerHTML = `
-                    <div style="display:flex; flex-direction:column; gap:2px;">
-                        <span class="manifest-item-url">${item.link}</span>
-                        <span style="font-weight:bold; color:var(--text-sepia);">¥${item.price.toLocaleString()}</span>
-                    </div>
-                    <button class="remove-item-btn" onclick="removeJapanItem(${item.id})">×</button>
-                `;
-                container.appendChild(row);
-            });
-
-            // Calculate MMK via Rate 30 + 5% service markup fee
-            const baseMmk = totalYen * 30;
-            const finalTotalMmk = baseMmk * 1.05;
-
-            document.getElementById('jp-summary-count').innerText = cart.length;
-            document.getElementById('jp-summary-foreign').innerText = '¥' + totalYen.toLocaleString();
-            document.getElementById('jp-summary-mmk').innerText = Math.round(finalTotalMmk).toLocaleString() + ' MMK';
-        }
-
-        function calculateThailandLive() {
-            const input = document.getElementById('th-calc-price');
-            const val = parseFloat(input.value) || 0;
-            
-            // Keeping your original Thailand calculations intact
-            const baseMmk = val * 100; // Assuming a dummy test base rate
-            const markup = baseMmk * 0.10; 
-            const total = baseMmk + markup;
-
-            document.getElementById('th-res-cost').innerText = baseMmk.toLocaleString() + ' MMK';
-            document.getElementById('th-res-markup').innerText = markup.toLocaleString() + ' MMK';
-            document.getElementById('th-res-total').innerText = total.toLocaleString() + ' MMK';
-        }
-
-        function proceedToCheckoutPage() {
-            alert('Proceeding to checkout with compiled manifest values!');
-        }
-
- <footer class="site-footer fade-up delay-2">
-        <p>allnightthinkingofyou@outlook.com  ❤︎⁠  located in yangon, myanmar </p>
-    </footer>
-
-    <script>
-        async function initializeGlobalHeader() {
-            const headerContainer = document.getElementById('global-header');
-            if (!headerContainer) return;
-            try {
-                const response = await fetch('header.html'); 
-                if (!response.ok) throw new Error('Header resource load failed');
-                const headerHtmlContent = await response.text();
-                headerContainer.innerHTML = headerHtmlContent;
-                
-                let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
-                if (currentFilename === "" || !currentFilename) currentFilename = "index.html";
-                
-                const navLinks = headerContainer.querySelectorAll('.nav-btn');
-                navLinks.forEach(link => {
-                    const dataPage = link.getAttribute('data-page');
-                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-
-                const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
-                const trigger = headerContainer.querySelector('.sidebar-trigger');
-                if (trigger && hoverZone) {
-                    trigger.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        hoverZone.classList.toggle('open');
-                    });
-                    document.addEventListener('click', (e) => {
-                        if (!hoverZone.contains(e.target)) {
-                            hoverZone.classList.remove('open');
-                        }
-                    });
-                }
-            } catch (error) { console.error('Error loading header:', error); }
-        }
-        document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
-    </script>
-</body>
-</html>
-
