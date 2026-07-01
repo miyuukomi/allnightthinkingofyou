@@ -3,134 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>♡ homepage</title>
+    <title>♡ under maintenance</title>
+    
+    <!-- Importing your fonts and your exact style.css to keep the theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
     <style>
-        .welcome-section { text-align: center; max-width: 600px; margin: 3.5rem auto 3.5rem auto; padding: 0 1rem; }
-        .welcome-section h1 { font-size: 2.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.8rem; color: var(--accent-rose); }
-        .welcome-section p.tagline { font-size: 1rem; font-style: italic; opacity: 0.8; margin-bottom: 2rem; }
-        .editorial-cta-btn { display: inline-block; background: #4e3f34; color: #fffdfa; padding: 0.7rem 1.5rem; text-decoration: none; font-style: italic; border-radius: 4px; margin-top: 1rem; transition: opacity 0.2s; }
-        .editorial-cta-btn:hover { opacity: 0.8; }
-        .sub-cta-text { font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;margin-bottom: 6rem; }
-        .shipping-style-title-box { text-align: center; margin-top: 0rem; margin-bottom: 1rem; }
-        .shipping-style-title-box h2 { font-size: 1.4rem; font-weight: 400; font-style: italic; color: var(--text-sepia); }
-        .how-it-works-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 900px; margin: 0 auto; padding: 1rem; }
-        @media (max-width: 768px) { .how-it-works-row { grid-template-columns: 1fr; } }
-        .step-editorial-block h3 { font-size: 1rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px dashed var(--border-soft); padding-bottom: 0.3rem; }
-        .step-editorial-block p { font-size: 0.85rem; opacity: 0.7; }
-        .curated-hauls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        @media (max-width: 768px) { .curated-hauls-grid { grid-template-columns: 1fr; } }
-        .haul-card { background: #fffff0; border: 1px dotted var(--border-soft ); padding: 1rem; border-radius: 2px; text-align: center; }
-        .haul-card h4 { font-size: 0.98rem; font-weight: 400; margin-bottom: 0.4rem; }
-        .haul-card p { font-size: 0.79rem; opacity: 0.8; font-style: bold; }
-        .community-editorial-block { text-align: center; margin: 4rem auto; padding: 0 1rem; max-width: 600px; }
-        .love-note-text { font-style: italic; font-size: 1.05rem; line-height: 1.6; }
+        /* Specific layout for the maintenance message */
+        .maintenance-wrapper {
+            text-align: center;
+            max-width: 600px;
+            margin: 6rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+        
+        .maintenance-wrapper h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            color: var(--accent-rose); /* Tied to style.css */
+        }
+        
+        .maintenance-wrapper p.status-note {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.85;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            color: var(--text-sepia); /* Tied to style.css */
+        }
+        
+        .telegram-btn {
+            display: inline-block;
+            background: var(--text-espresso); /* Tied to style.css */
+            color: var(--bg-cream);           /* Tied to style.css */
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-style: italic;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 15px rgba(107, 90, 80, 0.1);
+        }
+        
+        .telegram-btn:hover {
+            opacity: 0.85;
+        }
     </style>
 </head>
 <body>
-    <header id="global-header" class="site-header"></header>
     <main class="main-container">
-        <section class="welcome-section fade-up delay-1">
-            <h1> all night, thinking of you.</h1>
-            <p class="tagline">bringing your absolute favorite goodies straight home to myanmar ! </p>
-            <div class="cta-wrapper">
-                <a href="order.html" class="editorial-cta-btn">place your order now ❤︎⁠ </a>
-                <p class="sub-cta-text"> share your dream wishlist with us totally free of charge.</p>
-            </div>
-        </section>
-
-        <div class="shipping-style-title-box fade-up delay-2">
-            <h2>why shop with us? </h2>
-        </div>
-
-        <section class="how-it-works-row fade-up delay-2">
-            <div class="step-editorial-block">
-                <h3>♡ fast waiting time. </h3>
-                <p>✧ your goodies arrive in a flash! we process everything super fast so you never have to wait long for your Japan packages ♡</p>
-            </div>
-            <div class="step-editorial-block">
-                <h3> ♡ our own unique tracking system. </h3>
-                <p>✧ stalk your package with ease! our custom tracking system updates you every single step of the way from Japan to your doorstep (˶◜ᵕ◝˶)</p>
-            </div>
-            <div class="step-editorial-block">
-                <h3> ♡ price calculator </h3>
-                <p>✧ no math stress here! our built-in currency calculator instantly converts prices so you know exactly what you’re paying with zero surprises •⩊•</p>
-            </div>
-        </section>
-
-        <div class="shipping-style-title-box fade-up delay-2">
-            <h2>♡ our monthly process ♡ </h2>
-        </div>
-
-        <section class="curated-hauls-grid fade-up delay-2">
-            <div class="haul-card">
-                <h4> orders collection. </h4>
-                <p>we only accept up to 25 orders per month for japan, 30 orders per month for thailand . we open orders every first week of the month, ensuring arrival at the month's end. check our order status updates in our telegram channel.</p>
-            </div>
-            <div class="haul-card">
-                <h4>transit.</h4>
-                <p>after you've placed your order, it takes around 5-7 days for the package to arrive to our respective warehouses. after a certain amount of time, the package will be shipped to the flight office, making its way to myanmar.</p>
-            </div>
-            <div class="haul-card">
-                <h4>delivery.</h4>
-                <p>after a quality check, the package will be dispatched for delivery to your doorstep immediately the day after its arrival to our yangon house.</p>
-            </div>
-        </section>
-
-        <section class="community-editorial-block fade-up delay-2">
-            <p class="love-note-text">
-                "bridging the gap between you and your manifestations & allowing you to buy from pages that you had no idea it was even possible" <br>
-                <span style="color: var(--accent-rose); font-size: 0.75rem; font-style: normal;">— kairi, all night thinking of you ♡︎</span>
+        <!-- Reusing your fade-up animations from style.css -->
+        <section class="maintenance-wrapper fade-up delay-1">
+            <h1>all night, thinking of you.</h1>
+            <p class="status-note">
+                we are currently doing a little bit of maintenance to bring you a much better shopping experience.
             </p>
+            
+            <div class="fade-up delay-2">
+                <p style="margin-bottom: 1rem; color: var(--text-dark);">
+                    for ordering and inquiries, please message us directly:
+                </p>
+                <a href="https://t.me/allnightthinkingofu" target="_blank" rel="noopener" class="telegram-btn">
+                    contact @allnightthinkingofu ❤︎
+                </a>
+            </div>
         </section>
     </main>
 
+    <!-- Keeping your original footer -->
     <footer class="site-footer fade-up delay-2">
-        <p>allnightthinkingofyou@outlook.com  ❤︎⁠  located in yangon, myanmar </p>
+        <p>allnightthinkingofyou@outlook.com  ❤︎⁠  located in yangon, myanmar</p>
     </footer>
-
-    <script>
-        async function initializeGlobalHeader() {
-            const headerContainer = document.getElementById('global-header');
-            if (!headerContainer) return;
-            try {
-                const response = await fetch('header.html'); 
-                if (!response.ok) throw new Error('Header resource load failed');
-                const headerHtmlContent = await response.text();
-                headerContainer.innerHTML = headerHtmlContent;
-                
-                let currentFilename = window.location.pathname.split('/').pop().toLowerCase();
-                if (currentFilename === "" || !currentFilename) currentFilename = "index.html";
-                
-                const navLinks = headerContainer.querySelectorAll('.nav-btn');
-                navLinks.forEach(link => {
-                    const dataPage = link.getAttribute('data-page');
-                    if (dataPage && dataPage.toLowerCase() === currentFilename) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-
-                const hoverZone = headerContainer.querySelector('.sidebar-hover-zone');
-                const trigger = headerContainer.querySelector('.sidebar-trigger');
-                if (trigger && hoverZone) {
-                    trigger.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        hoverZone.classList.toggle('open');
-                    });
-                    document.addEventListener('click', (e) => {
-                        if (!hoverZone.contains(e.target)) {
-                            hoverZone.classList.remove('open');
-                        }
-                    });
-                }
-            } catch (error) { console.error('Error loading header:', error); }
-        }
-        document.addEventListener('DOMContentLoaded', initializeGlobalHeader);
-    </script>
 </body>
 </html>
